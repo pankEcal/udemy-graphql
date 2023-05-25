@@ -2,23 +2,13 @@ const products = [
 	{
 		id: "redshoe",
 		description: "red shoe description",
-		reviews: [
-			{
-				rating: 4.5,
-				comment: "nice good enough shoe",
-			},
-		],
+		reviews: [],
 		price: 44.4,
 	},
 	{
 		id: "bluejean",
 		description: "blue jean description",
-		reviews: [
-			{
-				rating: 3.5,
-				comment: "nice good enough blue jean",
-			},
-		],
+		reviews: [],
 		price: 25.4,
 	},
 ];
@@ -38,4 +28,21 @@ const getProductById = (id) => {
 	return product;
 };
 
-module.exports = { getAllProducts, getProductsByPrice, getProductById };
+const addNewProduct = (id, description, price) => {
+	const newProduct = {
+		id,
+		price,
+		description,
+		reviews: [],
+	};
+
+	products.push(newProduct);
+	return newProduct;
+};
+
+module.exports = {
+	getAllProducts,
+	getProductsByPrice,
+	getProductById,
+	addNewProduct,
+};
